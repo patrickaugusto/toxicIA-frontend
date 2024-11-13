@@ -1,54 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Model Configuration Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Detecção de Texto Ofensivo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="form-container">
-        <div class="form-content">
-        <h2>Configuração do Modelo de IA</h2>
-        <form action="#" method="post">
-            <label for="model">Model:</label>
-            <input type="text" id="model" name="model" required>
-            
-            <label for="prompt">Prompt:</label>
-            <input type="text" id="prompt" name="prompt" required>
-
-            <label for="lora_scale">Lora Scale:</label>
-            <input type="number" id="lora_scale" name="lora_scale" step="0.01" required>
-
-            <label for="num_outputs">Num Outputs:</label>
-            <input type="number" id="num_outputs" name="num_outputs" required>
-
-            <label for="aspect_ratio">Aspect Ratio:</label>
-            <select id="aspect_ratio" name="aspect_ratio" required>
-                <option value="1:1">1:1</option>
-                <option value="16:9">16:9</option>
-                <option value="4:3">4:3</option>
-            </select>
-
-            <label for="output_format">Output Format:</label>
-            <select id="output_format" name="output_format" required>
-                <option value="png">PNG</option>
-                <option value="jpg">JPG</option>
-                <option value="bmp">BMP</option>
-            </select>
-
-            <label for="guidance_scale">Guidance Scale:</label>
-            <input type="number" id="guidance_scale" name="guidance_scale" step="0.01" required>
-
-            <label for="output_quality">Output Quality:</label>
-            <input type="number" id="output_quality" name="output_quality" required>
-
-            <label for="num_inference_steps">Num Inference Steps:</label>
-            <input type="number" id="num_inference_steps" name="num_inference_steps" required>
-
-            <button type="submit">Enviar</button>
-        </form>
+    <div class="container">
+        <div class="input-container">
+            <h1>Verifique a Toxicidade</h1>
+            <textarea id="inputText" placeholder="Digite seu texto aqui"></textarea>
+            <button onclick="sendText()">Verificar</button>
+        </div>
+        <div class="result-container">
+            <h2>Resultado</h2>
+            <div id="toxicity" class="result-item">
+                <label>Toxicidade</label>
+                <progress id="toxicity-bar" value="0" max="1"></progress>
+                <span id="toxicity-percent">0%</span>
+            </div>
+            <div id="severe_toxicity" class="result-item">
+                <label>Toxicidade Grave</label>
+                <progress id="severe_toxicity-bar" value="0" max="1"></progress>
+                <span id="severe_toxicity-percent">0%</span>
+            </div>
+            <div id="obscene" class="result-item">
+                <label>Obscenidade</label>
+                <progress id="obscene-bar" value="0" max="1"></progress>
+                <span id="obscene-percent">0%</span>
+            </div>
+            <div id="identity_attack" class="result-item">
+                <label>Ataque à Identidade</label>
+                <progress id="identity_attack-bar" value="0" max="1"></progress>
+                <span id="identity_attack-percent">0%</span>
+            </div>
+            <div id="insult" class="result-item">
+                <label>Insulto</label>
+                <progress id="insult-bar" value="0" max="1"></progress>
+                <span id="insult-percent">0%</span>
+            </div>
+            <div id="threat" class="result-item">
+                <label>Ameaça</label>
+                <progress id="threat-bar" value="0" max="1"></progress>
+                <span id="threat-percent">0%</span>
+            </div>
+            <div id="sexual_explicit" class="result-item">
+                <label>Conteúdo Sexual Explícito</label>
+                <progress id="sexual_explicit-bar" value="0" max="1"></progress>
+                <span id="sexual_explicit-percent">0%</span>
+            </div>
+        </div>
     </div>
-</div>
+    <script src="script.js"></script>
 </body>
 </html>
