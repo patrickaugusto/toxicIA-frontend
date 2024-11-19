@@ -1,7 +1,7 @@
 function sendText() {
     var text = document.getElementById("inputText").value;
 
-    fetch("https://9be5-35-236-236-151.ngrok-free.app/check_toxicity", { 
+    fetch("https://7a7d-34-138-153-78.ngrok-free.app/check_toxicity", { 
         method: "POST",
         headers: {
             "Content-Type": "application/json"
