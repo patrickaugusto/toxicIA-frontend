@@ -1,6 +1,9 @@
 function sendText() {
     var text = document.getElementById("inputText").value;
 
+    //sempre que rodar o codigo no colab, o ngrok ira gerar uma url aleatoria.
+    //substituir esta url pela a que foi gerada no colab.
+    //ex: {url}/check_toxicity
     fetch("https://7a7d-34-138-153-78.ngrok-free.app/check_toxicity", { 
         method: "POST",
         headers: {
